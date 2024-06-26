@@ -4,12 +4,13 @@
 
 # Site
 title: Revenir's Space
-subtitle: ''
+subtitle: 'Local in Central South University'
 description: ''
-keywords:
-author: Yaokun Yang
-language: zh-CN
+keywords: 'Geophysics'
+author: Revenir
+language: zh-CN 
 timezone: ''
+email: yangyaokun@csu.edu.cn
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'

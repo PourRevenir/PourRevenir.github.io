@@ -3,13 +3,14 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Revenir's Space
-subtitle: ''
-description: ''
-keywords:
+title: Revenir's 辣椒炒肉粉面馆
+subtitle: 'Local in Central South University'
+description: '每日精选猪肉，优质辣椒'
+keywords: '辣椒炒肉拌面'
 author: Revenir
 language: zh-CN 
 timezone: ''
+email: yangyaokun@csu.edu.cn
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
