@@ -9,20 +9,20 @@ nav:
 
 # Menu 目錄
 menu:
-  Home: /首页/ || fas fa-home
-  Archives: /档案/ || fas fa-archive
-  Tags: /标签/ || fas fa-tags
-  Categories: /分类/ || fas fa-folder-open
-  List||fas fa-list:
-    Music: /音乐/ || fas fa-music
-    Movie: /电影/ || fas fa-video
-  Link: /链接/ || fas fa-link
-  About: /关于/ || fas fa-heart
+  首页: / || fas fa-home
+  时间轴: /archives/ || fas fa-archive
+  标签: /tags/ || fas fa-tags
+  分类: /categories/ || fas fa-folder-open
+  # List||fas fa-list:
+  #   Music: /music/ || fas fa-music
+  #   Movie: /movie/ || fas fa-video
+  链接: /link/ || fas fa-link
+  关于: /about/ || fas fa-heart
 
 # Code Blocks (代碼相關)
 # --------------------------------------
 
-highlight_theme: darker # darker / pale night / light / ocean / false
+highlight_theme: pale night # darker / pale night / light / ocean / false
 highlight_height_limit: false # unit: px
 code_word_wrap: false
 
@@ -34,11 +34,11 @@ highlight_shrink: false # true: shrink the code blocks / false: expand the code 
 highlight_fullpage: true # true: add button to toggle full page
 
 # Social Settings (社交圖標設置)
-# formal:
-#   icon: link || the description || color
+formal:
+  icon: link # icon: link || the description || color
 social:
-  # fab fa-github: https://github.com/xxxxx || Github || '#24292e'
-  # fas fa-envelope: mailto:xxxxxx@gmail.com || Email || '#4a7dbe'
+  fab fa-github: https://github.com/pourrevenir || Github || '#24292e'
+  fas fa-envelope: mailto:yangyaokun@csu.edu.com || Email || '#4a7dbe'
 
 # Image (圖片設置)
 # --------------------------------------
@@ -55,31 +55,31 @@ avatar:
 disable_top_img: false
 
 # The banner image of home page
-index_img:
+index_img: /img/cover.jpg
 
 # If the banner of page not setting, it will show the top_img
-default_top_img:
+default_top_img: /img/cover.jpg
 
 # The banner image of archive page
-archive_img:
+archive_img: /img/cover2.jpg
 
 # If the banner of tag page not setting, it will show the top_img
 # note: tag page, not tags page (子標籤頁面的 top_img)
-tag_img:
+tag_img: /img/cover2.jpg
 
 # The banner image of tag page
 # format:
 #  - tag name: xxxxx
-tag_per_img:
+tag_per_img: /img/cover2.jpg
 
 # If the banner of category page not setting, it will show the top_img
 # note: category page, not categories page (子分類頁面的 top_img)
-category_img:
+category_img: /img/cover2.jpg
 
 # The banner image of category page
 # format:
 #  - category name: xxxxx
-category_per_img:
+category_per_img: /img/cover2.jpg
 
 cover:
   # display the cover or not (是否顯示文章封面)
