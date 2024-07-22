@@ -31,7 +31,7 @@ $$I=\int^b_af(x)\mathrm{d}x=f(\frac{b+a}{2})(b-a)\tag{4.3}$$
 
 $$I=\int^{x_1}_{x_0}f(x)\mathrm{d}x=\dfrac h2(f_0+f_1)\tag{4.4}$$
 
-现在，我们来考虑梯形法则的误差. 由 `Newton-Leibnitz 公式` 
+现在，我们来考虑梯形法则的误差. 由 `Newton-Leibnitz 公式`
 
 {% note danger simple%}
 **Theorem 4.2**
@@ -78,4 +78,8 @@ $$\varepsilon=-\dfrac{h^3}{12}\dfrac{\mathrm{d}^2f(\xi)}{\mathrm{d}x^2}\tag{4.11
 
 $$I=\int^{x_1}_{x_0}f(x)\mathrm{d}x=\dfrac h2(f_0+f_1)-\dfrac{h^3}{12}\dfrac{\mathrm{d}^2f(\xi)}{\mathrm{d}x^2}\tag{4.12}$$
 
+可以看出，梯形法则具有二阶精度.
+
 ## Simpson 法则
+
+简单来说，`Simpson 法则`可以看做用三点拟合一条二次多项式，从而近似计算积分的值. 实际上，梯形法则、Simpson法则都是取不同个数的点然后通过 Lagrange 插值拟合多项式得到的，这也是 Newton-Cotes 公式的思路，如果选取四点拟合三次多项式，就得到了 `Simpson 3/8 法则`.
