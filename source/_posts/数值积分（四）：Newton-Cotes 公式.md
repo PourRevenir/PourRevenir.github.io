@@ -21,15 +21,15 @@ $$\exists\ \xi\in(a,b),\ \text{s.t.}\int^b_af(x)\mathrm{d}x=f(\xi)(b-a)$$
 
 这就需要对 $f(\xi)$ 进行近似. 显然可以用计算区域两端的函数值平均对其进行近似，这样就会得到`梯形法则`
 
-$$I=\int^b_af(x)\mathrm{d}x=\dfrac{f(b)+f(a)}{2}(b-a)\tag{4.2}$$
+$$I=\int^b_af(x)\mathrm{d}x\approx\dfrac{f(b)+f(a)}{2}(b-a)\tag{4.2}$$
 
 采用计算区域中点的函数值对其进行近似，就会得到`中矩法则`
 
-$$I=\int^b_af(x)\mathrm{d}x=f(\frac{b+a}{2})(b-a)\tag{4.3}$$
+$$I=\int^b_af(x)\mathrm{d}x\approx f(\frac{b+a}{2})(b-a)\tag{4.3}$$
 
 由于中矩法则需要中点的函数值，因此在实际中应用较少. 为了方便编写数值计算程序，用 $x_0$ 代替 $a$，用 $h$ 代替步长 $\Delta x$，计算点即 $x_k=x_0+hk$，用 $f_k$ 代替 $f(x_k)$. 由于式 (4.2) 中只需要两个点，因此可写成
 
-$$I=\int^{x_1}_{x_0}f(x)\mathrm{d}x=\dfrac h2(f_0+f_1)\tag{4.4}$$
+$$I=\int^{x_1}_{x_0}f(x)\mathrm{d}x\approx\dfrac h2(f_0+f_1)\tag{4.4}$$
 
 现在，我们来考虑梯形法则的误差. 由 `Newton-Leibnitz 公式`
 
@@ -62,7 +62,7 @@ $$I=hf(x_0)+\dfrac{h^2}{2}\dfrac{\mathrm{d}f(x_0)}{\mathrm{d}x}+\dfrac{h^3}{6}\d
 
 再看计算值，对 $f(x_1)$ 作 Taylor 展开，可得
 
-$$f(x_1)=f(x_0+h)=f(x_0)+h\dfrac{\mathrm{d}f(x_0)}{\mathrm{d}x}+\dfrac{h^2}{2}\dfrac{\mathrm{d}^2f(\xi)}{\mathrm{d}x^2}\tag{4.9}$$
+$$f(x_1)=f(x_0+h)\approx f(x_0)+h\dfrac{\mathrm{d}f(x_0)}{\mathrm{d}x}+\dfrac{h^2}{2}\dfrac{\mathrm{d}^2f(\xi)}{\mathrm{d}x^2}\tag{4.9}$$
 
 需要说明的是，式 (4.7) 和式 (4.9) 中的 $\xi$ 其实不能直接认为是相同的，但是可以证明二者是相等的，因此这里没有做区分. 证明也很容易，从 $f(x)=\dfrac{\mathrm{d}F(x)}{\mathrm{d}x}$ 出发即可.
 
@@ -126,8 +126,71 @@ $$P_n(x)=\sum^n_{k=0}y_kL_{n,k}(x)\tag{4.18}$$
 
 其中 Lagrange 系数为
 
-$$L_{n,k}(x)=\prod^n\dfrac{x-x_i}{x_k-x_i}\tag{4.19}$$
+$$L_{n,k}(x)=\prod^n\dfrac{x-x_i}{x_k-x_i},\ i\neq k\tag{4.19}$$
 
 并具有式 (4.17) 中的性质.
 
+### Simpson 法则
 
+Simpson 法则实际上就是利用三个数据点构建一个 Lagrange 多项式
+
+$$P_2(x)=f_0\dfrac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)}+f_1\dfrac{(x-x_0)(x-x_2)}{(x_1-x_0)(x_1-x_2)}+f_2\dfrac{(x-x_0)(x-x_1)}{(x_2-x_0)(x_2-x_1)}\tag{4.20}$$
+
+插入到积分中
+
+$$I=\int^{x_2}_{x_0}f(x)\mathrm{d}x\approx \int^{x_2}_{x_0}P_2(x)\mathrm{d}x\tag{4.21}$$
+
+$$I=f_0\int^{x_2}_{x_0}\dfrac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)}\mathrm{d}x+f_1\int^{x_2}_{x_0}\dfrac{(x-x_0)(x-x_2)}{(x_1-x_0)(x_1-x_2)}\mathrm{d}x+f_2\int^{x_2}_{x_0}\dfrac{(x-x_0)(x-x_1)}{(x_2-x_0)(x_2-x_1)}\mathrm{d}x\tag{4.22}$$
+
+分别计算各项积分的值
+
+$$\begin{aligned}
+\int^{x_2}_{x_0}\dfrac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)}\mathrm{d}x&=\dfrac{1}{2h^2}\int^{x_2}_{x_0}(x-x_1)(x-x_2)\mathrm{d}x\\
+&=\dfrac{1}{2h^2}\left.\left[\dfrac13x^3-\dfrac{x_1+x_2}2x^2+x_1x_2x\right]\right|_{x_0}^{x_2}\\
+&=\dfrac{1}{2h^2}\left[\dfrac132h(x_2^2+x_0x_2+x_0^2)-\dfrac{x_1+x_2}22h(x_2+x_0)+2hx_1x_2x\right]
+\end{aligned}$$
+
+代入 $x_2=x_0+2h$，$x_1=x_0+h$ 得到
+
+$$\int^{x_2}_{x_0}\dfrac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)}\mathrm{d}x=\dfrac{h}{3}$$
+
+用同样的方法求解出
+
+$$\int^{x_2}_{x_0}\dfrac{(x-x_0)(x-x_2)}{(x_1-x_0)(x_1-x_2)}\mathrm{d}x=\dfrac{4h}{3}$$
+
+$$\int^{x_2}_{x_0}\dfrac{(x-x_0)(x-x_1)}{(x_2-x_0)(x_2-x_1)}\mathrm{d}x=\dfrac{h}{3}$$
+
+于是可以得到式 (4.22) 等于
+
+$$I=\int^{x_2}_{x_0}f(x)\mathrm{d}x\approx\dfrac h3(f_0+4f_1+f_2)\tag{4.23}$$
+
+现在让我们考虑 Simpson 法则的误差，与计算式 （4.8）时的操作类似，对 $F(x_2)$ 做 Taylor 展开
+
+$$F(x_2)=F(x_0+2h)=F(x_0)+2h\dfrac{\mathrm{d}F(x)}{\mathrm{d}x}+\dfrac{4h^2}{2}\dfrac{\mathrm{d}^2F(x)}{\mathrm{d}x^2}+\dfrac{8h^3}{6}\dfrac{\mathrm{d}^3F(x)}{\mathrm{d}x^3}+\dfrac{16h^4}{24}\dfrac{\mathrm{d}^4F(x)}{\mathrm{d}x^4}+\dfrac{32h^5}{120}\dfrac{\mathrm{d}^5F(\xi)}{\mathrm{d}x^5}\tag{4.24}$$
+
+利用 $\dfrac{\mathrm{d}F(x)}{\mathrm{d}x}=f(x)$ 可得
+
+$$I=\int^{x_2}_{x_0}f(x)\mathrm{d}x=F(x_2)-F(x_0)=2hf(x_0)+2h^2\dfrac{\mathrm{d}f(x)}{\mathrm{d}x}+\dfrac{4h^3}{3}\dfrac{\mathrm{d}^2f(x)}{\mathrm{d}x^2}+\dfrac{2h^4}{3}\dfrac{\mathrm{d}^3f(x)}{\mathrm{d}x^3}+\dfrac{4h^5}{15}\dfrac{\mathrm{d}^4f(\xi)}{\mathrm{d}x^4}\tag{4.25}$$
+
+分别对 $f(x_1)$ 和 $f(x_2)$ 做 Taylor 展开
+
+$$f(x_1)=f(x_0+h)=f(x_0)+h\dfrac{\mathrm{d}f(x)}{\mathrm{d}x}+\dfrac{h^2}{2}\dfrac{\mathrm{d}^2f(x)}{\mathrm{d}x^2}+\dfrac{h^3}{6}\dfrac{\mathrm{d}^3f(x)}{\mathrm{d}x^3}+\dfrac{h^4}{24}\dfrac{\mathrm{d}^4f(\xi)}{\mathrm{d}x^4}\tag{4.26}$$
+
+$$f(x_2)=f(x_0+2h)=f(x_0)+2h\dfrac{\mathrm{d}f(x)}{\mathrm{d}x}+2h^2\dfrac{\mathrm{d}^2f(x)}{\mathrm{d}x^2}+\dfrac{4h^3}{3}\dfrac{\mathrm{d}^3f(x)}{\mathrm{d}x^3}+\dfrac{2h^4}{3}\dfrac{\mathrm{d}^4f(\xi)}{\mathrm{d}x^4}\tag{4.26}$$
+
+近似值即可写成
+
+$$\begin{aligned}
+I&\approx\dfrac h3(f_0+4f_1+f_2)\\
+&=2hf(x_0)+2h^2\dfrac{\mathrm{d}f(x)}{\mathrm{d}x}+\dfrac{4h^3}{3}\dfrac{\mathrm{d}^2f(x)}{\mathrm{d}x^2}+\dfrac{2h^4}{3}\dfrac{\mathrm{d}^3f(x)}{\mathrm{d}x^3}+\dfrac{5h^5}{18}\dfrac{\mathrm{d}^4f(\xi)}{\mathrm{d}x^4}\tag{4.27}
+\end{aligned}$$
+
+用式 (4.24) 减去式 (4.27) 即可得误差项
+
+$$\varepsilon=-\dfrac{h^5}{90}\dfrac{\mathrm{d}^4f(\xi)}{\mathrm{d}x^4}\tag{4.28}$$
+
+从而得到 Simpson 法则
+
+$$I=\int^{x_2}_{x_0}f(x)\mathrm{d}x=\dfrac h3(f_0+4f_1+f_2)-\dfrac{h^5}{90}\dfrac{\mathrm{d}^4f(\xi)}{\mathrm{d}x^4}\tag{4.29}$$
+
+可以看出 Simpson 法则具有四阶精度.
