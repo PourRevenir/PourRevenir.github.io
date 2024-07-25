@@ -83,3 +83,51 @@ $$I=\int^{x_1}_{x_0}f(x)\mathrm{d}x=\dfrac h2(f_0+f_1)-\dfrac{h^3}{12}\dfrac{\ma
 ## Simpson 法则
 
 简单来说，`Simpson 法则`可以看做用三点拟合一条二次多项式，从而近似计算积分的值. 实际上，梯形法则、Simpson法则都是取不同个数的点然后通过 Lagrange 插值拟合多项式得到的，这也是 Newton-Cotes 公式的思路，如果选取四点拟合三次多项式，就得到了 `Simpson 3/8 法则`.
+
+### 多项式拟合
+
+多项式拟合是拟合曲线的一种方法，给定 n+1 个点，可以用一个 n 次多项式进行拟合
+
+$$(x_i,y_i),\ i=0,1,2\cdots n$$
+
+多项式如下
+
+$$P_n(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0\tag{4.13}$$
+
+带入数据点，得到方程组
+
+$$\begin{cases}
+y_0=a_nx_0^n+a_{n-1}x_0^{n-1}+\cdots+a_1x_0+a_0\\
+y_1=a_nx_1^n+a_{n-1}x_1^{n-1}+\cdots+a_1x_1+a_0\\
+\qquad\qquad\qquad\qquad\vdots\\
+y_n=a_nx_n^n+a_{n-1}x_n^{n-1}+\cdots+a_1x_n+a_0\\
+\end{cases}\tag{4.14}$$
+
+由于这是一个线性方程组，因此可以通过 MATLAB 直接求解.
+
+但是这种求解方法计算量较大，更为直接的一种方法是利用 `Lagrange 插值法`，例如给定两个数据点 $(x_0,y_0)$ $(x_1,y_1)$，通过这两点的直线可以写成
+
+$$P_1(x)=y_0\dfrac{x-x_1}{x_0-x_1}+y_1\dfrac{x-x_0}{x_1-x_0}\tag{4.15}$$
+
+上式也可简记为
+
+$$P_1(x)=y_0L_{1,0}(x)+y_1L_{1,1}(x)\tag{4.16}$$
+
+类似的可以发现，Lagrange 系数 $L_{n,k}$ 有以下特点
+
+$$L_{n,k}(x_j)=\begin{cases}
+1,& j=k\\
+0,& j\neq k
+\end{cases}\tag{4.17}$$
+
+这样，我们可以通过 n+1 个数据点，拟合出 n 次幂多项式
+
+$$P_n(x)=\sum^n_{k=0}y_kL_{n,k}(x)\tag{4.18}$$
+
+其中 Lagrange 系数为
+
+$$L_{n,k}(x)=\prod^n\dfrac{x-x_i}{x_k-x_i}\tag{4.19}$$
+
+并具有式 (4.17) 中的性质.
+
+
