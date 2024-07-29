@@ -182,8 +182,8 @@ $$f(x_2)=f(x_0+2h)=f(x_0)+2h\dfrac{\mathrm{d}f(x)}{\mathrm{d}x}+2h^2\dfrac{\math
 
 $$\begin{aligned}
 I&\approx\dfrac h3(f_0+4f_1+f_2)\\
-&=2hf(x_0)+2h^2\dfrac{\mathrm{d}f(x)}{\mathrm{d}x}+\dfrac{4h^3}{3}\dfrac{\mathrm{d}^2f(x)}{\mathrm{d}x^2}+\dfrac{2h^4}{3}\dfrac{\mathrm{d}^3f(x)}{\mathrm{d}x^3}+\dfrac{5h^5}{18}\dfrac{\mathrm{d}^4f(\xi)}{\mathrm{d}x^4}\tag{4.27}
-\end{aligned}$$
+&=2hf(x_0)+2h^2\dfrac{\mathrm{d}f(x)}{\mathrm{d}x}+\dfrac{4h^3}{3}\dfrac{\mathrm{d}^2f(x)}{\mathrm{d}x^2}+\dfrac{2h^4}{3}\dfrac{\mathrm{d}^3f(x)}{\mathrm{d}x^3}+\dfrac{5h^5}{18}\dfrac{\mathrm{d}^4f(\xi)}{\mathrm{d}x^4}
+\end{aligned}\tag{4.27}$$
 
 用式 (4.24) 减去式 (4.27) 即可得误差项
 
