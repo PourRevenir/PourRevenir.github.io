@@ -82,7 +82,7 @@ $$I=\int^{x_1}_{x_0}f(x)\mathrm{d}x=\dfrac h2(f_0+f_1)-\dfrac{h^3}{12}\dfrac{\ma
 
 ## Simpson 法则
 
-简单来说，`Simpson 法则`可以看做用三点拟合一条二次多项式，从而近似计算积分的值. 实际上，梯形法则、Simpson法则都是取不同个数的点然后通过 Lagrange 插值拟合多项式得到的，这也是 Newton-Cotes 公式的思路，如果选取四点拟合三次多项式，就得到了 `Simpson 3/8 法则`.
+简单来说，`Simpson 法则`可以看做用三点拟合一条二次多项式，从而近似计算积分的值. 实际上，梯形法则、Simpson法则都是取不同个数的点然后通过 Lagrange 插值拟合多项式得到的，这也是 Newton-Cotes 公式的思路，如果选取四点拟合三次多项式，就得到了 `Simpson 3/8 法则`，如果选取五点拟合二次多项式，就得到了 `Boole 法则` .
 
 ### 多项式拟合
 
@@ -194,3 +194,14 @@ $$\varepsilon=-\dfrac{h^5}{90}\dfrac{\mathrm{d}^4f(\xi)}{\mathrm{d}x^4}\tag{4.28
 $$I=\int^{x_2}_{x_0}f(x)\mathrm{d}x=\dfrac h3(f_0+4f_1+f_2)-\dfrac{h^5}{90}\dfrac{\mathrm{d}^4f(\xi)}{\mathrm{d}x^4}\tag{4.29}$$
 
 可以看出 Simpson 法则具有四阶精度.
+
+## 小结
+
+通过 Newton-Cotes 公式的基本思路，我们可以推导出下面的法则，并估计相应的误差.
+
+|||
+|:---|:---|
+|梯形法则|$\dfrac h2(f_0+f_1)-\dfrac{h^3}{12}\dfrac{\mathrm{d}^2f(\xi)}{\mathrm{d}x^2}$|
+|Simpson 法则|$\dfrac h3(f_0+4f_1+f_2)-\dfrac{h^5}{90}\dfrac{\mathrm{d}^2f(\xi)}{\mathrm{d}x^2}$|
+|Simpson 3/8 法则|$\dfrac {3h}{8}(f_0+3f_1+3f_2+f_3)-\dfrac{3h^5}{80}\dfrac{\mathrm{d}^4f(\xi)}{\mathrm{d}x^4}$|
+|Boole 法则|$\dfrac{2h}{45}(7f_0+32f_1+12f_2+32f_3+7f_4)-\dfrac{h^3}{12}\dfrac{\mathrm{d}^6f(\xi)}{\mathrm{d}x^6}$|
