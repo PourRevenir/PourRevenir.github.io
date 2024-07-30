@@ -2,12 +2,17 @@
 script.
   (() => {
     const loadMathjax = () => {
+    //检查window.MathJax是否已存在
       if (!window.MathJax) {
         window.MathJax = {
+        //表示使用$或\\(和\\)作为内联数学公式的标记。
+
           tex: {
             inlineMath: [['$', '$'], ['\\(', '\\)']],
+            // 显示标签
             tags: 'ams'
           },
+
           chtml: {
             scale: 1.1
           },
@@ -32,6 +37,7 @@ script.
         script.src = '!{url_for(theme.asset.mathjax)}'
         script.id = 'MathJax-script'
         script.async = true
+
         document.head.appendChild(script)
       } else {
         MathJax.startup.document.state(0)

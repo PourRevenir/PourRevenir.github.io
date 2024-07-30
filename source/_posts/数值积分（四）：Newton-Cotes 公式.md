@@ -138,17 +138,17 @@ $$P_2(x)=f_0\dfrac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)}+f_1\dfrac{(x-x_0)(x-x_2)}
 
 插入到积分中
 
-$$I=\int^{x_2}_{x_0}f(x)\mathrm{d}x\approx \int^{x_2}_{x_0}P_2(x)\mathrm{d}x\tag{4.21}$$
 
-$$I=f_0\int^{x_2}_{x_0}\dfrac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)}\mathrm{d}x+f_1\int^{x_2}_{x_0}\dfrac{(x-x_0)(x-x_2)}{(x_1-x_0)(x_1-x_2)}\mathrm{d}x+f_2\int^{x_2}_{x_0}\dfrac{(x-x_0)(x-x_1)}{(x_2-x_0)(x_2-x_1)}\mathrm{d}x\tag{4.22}$$
+$$I=\int^{x_2} _ {x_0} f(x)\mathrm{d}x\approx \int^{x_2}_{x_0}P_2(x)\mathrm{d}x\tag{4.21}$$
+
+
+$$I=f_0\int^{x_2} _ {x_0}\dfrac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)}\mathrm{d}x+f_1\int^{x_2} _ {x_0}\dfrac{(x-x_0)(x-x_2)}{(x_1-x_0)(x_1-x_2)}\mathrm{d}x+f_2\int^{x_2}_{x_0}\dfrac{(x-x_0)(x-x_1)}{(x_2-x_0)(x_2-x_1)}\mathrm{d}x\tag{4.22}$$
+
 
 分别计算各项积分的值
 
-$$
-\int^{x_2}_{x_0}\dfrac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)}\mathrm{d}x&=\dfrac{1}{2h^2}\int^{x_2}_{x_0}(x-x_1)(x-x_2)\mathrm{d}x\\
-&=\dfrac{1}{2h^2}\left.\left[\dfrac13x^3-\dfrac{x_1+x_2}2x^2+x_1x_2x\right]\right|_{x_0}^{x_2}\\
-&=\dfrac{1}{2h^2}\left[\dfrac132h(x_2^2+x_0x_2+x_0^2)-\dfrac{x_1+x_2}22h(x_2+x_0)+2hx_1x_2x\right]
-$$
+$$ \int^{x_2} _ {x_0}\dfrac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)}\mathrm{d}x =\dfrac{1}{2h^2}\int^{x_2}{x_0}(x-x_1)(x-x_2)\mathrm{d}x\ =\dfrac{1}{2h^2}\left.\left\dfrac13x^3-\dfrac{x_1+x_2}2x^2+x_1x_2x\right]\right|_{x_0}^{x_2}\ =\dfrac{1}{2h^2}\left\dfrac132h(x_2^2+x_0x_2+x_0^2)-\dfrac{x_1+x_2}22h(x_2+x_0)+2hx_1x_2x\right] $$
+
 
 代入 $x_2=x_0+2h$，$x_1=x_0+h$ 得到
 
