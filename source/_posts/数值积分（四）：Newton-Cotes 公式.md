@@ -147,8 +147,13 @@ $$I=f_0\int^{x_2} _ {x_0}\dfrac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)}\mathrm{d}x+f
 
 分别计算各项积分的值
 
-$$ \int^{x_2} _ {x_0}\dfrac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)}\mathrm{d}x =\dfrac{1}{2h^2}\int^{x_2}{x_0}(x-x_1)(x-x_2)\mathrm{d}x\ =\dfrac{1}{2h^2}\left.\left\dfrac13x^3-\dfrac{x_1+x_2}2x^2+x_1x_2x\right]\right|_{x_0}^{x_2}\ =\dfrac{1}{2h^2}\left\dfrac132h(x_2^2+x_0x_2+x_0^2)-\dfrac{x_1+x_2}22h(x_2+x_0)+2hx_1x_2x\right] $$
+\int^{x_2} _ {x_0}\dfrac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)}\mathrm{d}x
 
+&=\dfrac{1}{2h^2}\int^{x_2} _ {x_0}(x-x_1)(x-x_2)\mathrm{d}x\\
+
+&=\dfrac{1}{2h^2}\left.\left[\dfrac{1}{3}x^3-\dfrac{x_1+x_2}2x^2+x_1x_2x\right]\right|_{x_0}^{x_2}\\
+
+&=\dfrac{1}{2h^2}\left[\dfrac132h(x_2^2+x_0x_2+x_0^2)-\dfrac{x_1+x_2}22h(x_2+x_0)+2hx_1x_2x\right]
 
 代入 $x_2=x_0+2h$，$x_1=x_0+h$ 得到
 
