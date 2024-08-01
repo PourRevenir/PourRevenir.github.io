@@ -82,7 +82,7 @@ $$I=\int^{x_1}_{x_0}f(x)\mathrm{d}x=\dfrac h2(f_0+f_1)-\dfrac{h^3}{12}\dfrac{\ma
 
 ## Simpson 法则
 
-简单来说，`Simpson 法则`可以看做用三点拟合一条二次多项式，从而近似计算积分的值. 实际上，梯形法则、Simpson法则都是取不同个数的点然后通过 Lagrange 插值拟合多项式得到的，这也是 Newton-Cotes 公式的思路，如果选取四点拟合三次多项式，就得到了 `Simpson 3/8 法则`，如果选取五点拟合二次多项式，就得到了 `Boole 法则` .
+简单来说，`Simpson 法则`可以看做用三点拟合一条二次多项式，从而近似计算积分的值. 实际上，梯形法则、Simpson法则都是取不同个数的点然后通过 Lagrange 插值拟合多项式得到的，这也是 Newton-Cotes 公式的思路，如果选取四点拟合三次多项式，就得到了 `Simpson 3/8 法则`，如果选取五点拟合四次多项式，就得到了 `Boole 法则` .
 
 ### 多项式拟合
 
@@ -138,22 +138,17 @@ $$P_2(x)=f_0\dfrac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)}+f_1\dfrac{(x-x_0)(x-x_2)}
 
 插入到积分中
 
+$$I=\int^{x_2}_ {x_0}f(x)\mathrm{d}x\approx \int^{x_2}_ {x_0}P_2(x)\mathrm{d}x\tag{4.21}$$
 
-$$I=\int^{x_2} _ {x_0} f(x)\mathrm{d}x\approx \int^{x_2}_{x_0}P_2(x)\mathrm{d}x\tag{4.21}$$
-
-
-$$I=f_0\int^{x_2} _ {x_0}\dfrac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)}\mathrm{d}x+f_1\int^{x_2} _ {x_0}\dfrac{(x-x_0)(x-x_2)}{(x_1-x_0)(x_1-x_2)}\mathrm{d}x+f_2\int^{x_2}_{x_0}\dfrac{(x-x_0)(x-x_1)}{(x_2-x_0)(x_2-x_1)}\mathrm{d}x\tag{4.22}$$
-
+$$I=f_0\int^{x_2} _{x_0}\dfrac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)}\mathrm{d}x+f_1\int^{x_2} _{x_0}\dfrac{(x-x_0)(x-x_2)}{(x_1-x_0)(x_1-x_2)}\mathrm{d}x+f_2\int^{x_2} _{x_0}\dfrac{(x-x_0)(x-x_1)}{(x_2-x_0)(x_2-x_1)}\mathrm{d}x\tag{4.22}$$
 
 分别计算各项积分的值
 
-\int^{x_2} _ {x_0}\dfrac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)}\mathrm{d}x
-
-&=\dfrac{1}{2h^2}\int^{x_2} _ {x_0}(x-x_1)(x-x_2)\mathrm{d}x\\
-
-&=\dfrac{1}{2h^2}\left.\left[\dfrac{1}{3}x^3-\dfrac{x_1+x_2}2x^2+x_1x_2x\right]\right|_{x_0}^{x_2}\\
-
-&=\dfrac{1}{2h^2}\left[\dfrac132h(x_2^2+x_0x_2+x_0^2)-\dfrac{x_1+x_2}22h(x_2+x_0)+2hx_1x_2x\right]
+$$
+\int^{x_2}_ {x_0}\dfrac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)}\mathrm{d}x=\dfrac{1}{2h^2}\int^{x_2}_ {x_0}(x-x_1)(x-x_2)\mathrm{d}x\\
+=\dfrac{1}{2h^2}\left.\left[\dfrac13x^3-\dfrac{x_1+x_2}2x^2+x_1x_2x\right]\right|_{x_0}^{x_2}\\
+=\dfrac{1}{2h^2}\left[\dfrac132h(x_2^2+x_0x_2+x_0^2)-\dfrac{x_1+x_2}22h(x_2+x_0)+2hx_1x_2x\right]
+$$
 
 代入 $x_2=x_0+2h$，$x_1=x_0+h$ 得到
 
@@ -185,10 +180,9 @@ $$f(x_2)=f(x_0+2h)=f(x_0)+2h\dfrac{\mathrm{d}f(x)}{\mathrm{d}x}+2h^2\dfrac{\math
 
 近似值即可写成
 
-$$\begin{aligned}
-I&\approx\dfrac h3(f_0+4f_1+f_2)\\
-&=2hf(x_0)+2h^2\dfrac{\mathrm{d}f(x)}{\mathrm{d}x}+\dfrac{4h^3}{3}\dfrac{\mathrm{d}^2f(x)}{\mathrm{d}x^2}+\dfrac{2h^4}{3}\dfrac{\mathrm{d}^3f(x)}{\mathrm{d}x^3}+\dfrac{5h^5}{18}\dfrac{\mathrm{d}^4f(\xi)}{\mathrm{d}x^4}
-\end{aligned}\tag{4.27}$$
+$$
+I\approx\dfrac h3(f_0+4f_1+f_2)=2hf(x_0)+2h^2\dfrac{\mathrm{d}f(x)}{\mathrm{d}x}+\dfrac{4h^3}{3}\dfrac{\mathrm{d}^2f(x)}{\mathrm{d}x^2}+\dfrac{2h^4}{3}\dfrac{\mathrm{d}^3f(x)}{\mathrm{d}x^3}+\dfrac{5h^5}{18}\dfrac{\mathrm{d}^4f(\xi)}{\mathrm{d}x^4}
+\tag{4.27}$$
 
 用式 (4.24) 减去式 (4.27) 即可得误差项
 
@@ -209,4 +203,19 @@ $$I=\int^{x_2}_{x_0}f(x)\mathrm{d}x=\dfrac h3(f_0+4f_1+f_2)-\dfrac{h^5}{90}\dfra
 |梯形法则|$\dfrac h2(f_0+f_1)-\dfrac{h^3}{12}\dfrac{\mathrm{d}^2f(\xi)}{\mathrm{d}x^2}$|
 |Simpson 法则|$\dfrac h3(f_0+4f_1+f_2)-\dfrac{h^5}{90}\dfrac{\mathrm{d}^2f(\xi)}{\mathrm{d}x^2}$|
 |Simpson 3/8 法则|$\dfrac {3h}{8}(f_0+3f_1+3f_2+f_3)-\dfrac{3h^5}{80}\dfrac{\mathrm{d}^4f(\xi)}{\mathrm{d}x^4}$|
-|Boole 法则|$\dfrac{2h}{45}(7f_0+32f_1+12f_2+32f_3+7f_4)-\dfrac{h^3}{12}\dfrac{\mathrm{d}^6f(\xi)}{\mathrm{d}x^6}$|
+|Boole 法则|$\dfrac{2h}{45}(7f_0+32f_1+12f_2+32f_3+7f_4)-\dfrac{h^7}{945}\dfrac{\mathrm{d}^6f(\xi)}{\mathrm{d}x^6}$|
+
+在此基础上，我们得到 `Cotes  系数表`
+
+|n|$C_0$|$C_1$|$C_2$|$C_3$|$C_4$|$C_5$|$C_6$|
+|:---|:---|:---|:---|:---|:---|:---|:---|
+|n=1|$\dfrac12$|$\dfrac12$|
+|n=2|$\dfrac16$|$\dfrac46$|$\dfrac16$|
+|n=3|$\dfrac18$|$\dfrac38$|$\dfrac38$|$\dfrac18$|
+|n=4|$\dfrac7{90}$|$\dfrac{32}{90}$|$\dfrac{12}{90}$|$\dfrac{32}{90}$|$\dfrac7{90}$|
+|n=5|$\dfrac{19}{288}$|$\dfrac{75}{288}$|$\dfrac{50}{288}$|$\dfrac{50}{288}$|$\dfrac{75}{288}$|$\dfrac{19}{288}$|
+|n=6|$\dfrac{41}{840}$|$\dfrac{216}{840}$|$\dfrac{27}{840}$|$\dfrac{272}{840}$|$\dfrac{27}{840}$|$\dfrac{216}{840}$|$\dfrac{41}{840}$|
+
+{% note info simple%}
+$$I\approx (b-a)\sum^n_ {j=0}C_jf_j$$
+{% endnote %}

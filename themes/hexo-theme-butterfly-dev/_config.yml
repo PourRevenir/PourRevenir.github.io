@@ -355,9 +355,9 @@ mathjax:
 
 # KaTeX
 katex:
-  enable: true
-  per_page: true
-  hide_scrollbar: true
+  enable: false
+  per_page: false
+  hide_scrollbar: false
 
 # search (搜索)
 # see https://butterfly.js.org/posts/ceeb73f/#搜索系統
