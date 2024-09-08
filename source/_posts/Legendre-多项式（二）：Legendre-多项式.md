@@ -48,4 +48,4 @@ $$P_l(x)=\sum^N_{k=0}\dfrac{(-1)^k(2l-2k)!}{2^lk!(l-k)!(l-2k)!}x^{l-2k}\tag{2.3}
 
 绘制在一张图上
 
-![Legendre 多项式](img\post8_fig1.svg)
+![Legendre 多项式](img/post8_fig1.svg)
