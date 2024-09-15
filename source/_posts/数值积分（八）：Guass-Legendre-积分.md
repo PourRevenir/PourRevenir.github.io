@@ -34,4 +34,20 @@ $$
 
 ## Gauss-Legendre 积分
 
-由 Legendre 多项式的性质，可以取 Legendre 多项式的根作为 Gauss 点，从而得到 `Gauss-Legendre 积分`.
+由 Legendre 多项式的性质，当 $\rho(x)=1$ 时，且积分区间为 $[-1,1]$ ，Legendre 多项式的根即为 Gauss 点，从而得到 `Gauss-Legendre 积分`.
+
+$$
+\int^1_{-1}f(x)\mathrm{d}x\approx\sum^n_{k=0}A_kf(x_k)\tag{8.4}
+$$
+
+其误差余项为
+
+$$
+E_n=\dfrac{2^{2n+3}[(n+1)!]^4}{(2n+3)[(2n+2)!]^3}\dfrac{\mathrm{d}^{2n+2}f(\xi)}{\mathrm{d}x^{2n+2}},\ \xi\in(-1,1)\tag{8.5}
+$$
+
+对于 $[a,b]$ 上的积分，只需做线性变换即可得
+
+$$
+\int^b_af(x)\mathrm{d}x=\dfrac{b-a}{2}\int^1_{-1}f(\dfrac{b-a}{2}t+\dfrac{a+b}{2})\mathrm{d}t\tag{8.6}
+$$

@@ -86,7 +86,7 @@ $$\int^b_a\rho(x)f(x)\mathrm{d}x\approx \sum^n _{k=0}A_kf(x_k)\tag{7.5}$$
 
 **Gauss 型求积公式在所有机械求积公式中代数精度最高**，不可能出现代数精度为 $2n+2$ 或以上的求积公式. 证明方法是构造 $f(x)=\omega^2_{n+1}(x)$，其中 $\omega_{n+1}(x)=\prod^n_{k=0}(x-x_k)$ ，读者自证不难.
 
-确定 Gauss 点和 Gauss 系数共有两种方法，一种是解非线性方程组，此法较为困难；另一种是先确定 Gauss 点，再通过解线性方程组确定 Gauss 系数. 
+确定 Gauss 点和 Gauss 系数共有两种方法，一种是解非线性方程组，此法较为困难；另一种是先确定 Gauss 点，再通过解线性方程组确定 Gauss 系数.
 
 ## Gauss 点的性质
 
@@ -140,10 +140,64 @@ $$
 H_{2n+1}(x_k)=f(x_k),\ \dfrac{\mathrm{d}H_{2n+1}(x)}{\mathrm{d}x}=\dfrac{\mathrm{d}f(x)}{\mathrm{d}x}
 $$
 
-由于 $k=0,1,\cdots,n$ ，因此可以建立 $2n+2$ 个线性方程，从而可以确定 $2n+1$ 次多项式各项系数.
+由于 $k=0,1,\cdots,n$ ，因此可以建立 $2n+2$ 个线性方程，从而可以确定 $2n+1$ 次多项式各项系数. 这种插值方法被称为 `Hermite 插值法`. 关于 Hermite 插值余项的推导方法与 Lagrange 插值余项的推导方法类似.
 
-同时还可以知道，对 $H_{2n+1}(x)$ 使用求积公式可以精确成立
+设余项为 $R(x)$ ，有 $f(x)=H_{2n+1}(x)+R(x)$，由于 $f(x_k)=H_{2n+1}(x_k)$，因此一定有 $R(x_k)=0$，即 $R(x)$ 一定可以写成
+
+$$R(x)=k(x)\omega_{n+1}^2(x)\tag{7.8}$$
+
+其中 $\omega_{n+1}(x)=\prod^n_{k=0}(x-x_k)$.
+
+构造函数
 
 $$
-\int^b_a\rho(x)H_{2n+1}(x)\mathrm{d}x=\sum^n_{k=0}A_kf(x_k)\tag{7.8}
+\phi(t)=f(t)-H_{2n+1}(t)-k(t)\omega_{n+1}^2(t)\tag{7.9}
 $$
+
+显然有 $\phi(x_k)=0$ 以及 $\phi(x)=0$，根据 Roll 定理可知 $\phi'(x)$ 在 $(x_0,x_1),(x_1,x_2),\cdots,(x_{n-1},x_n)$ 上均有一个零点，而这些零点一定又是 $\phi(x)$ 的零点（实际上是因为我们在插值的过程中每个点都使用了两次），一共有 $2n+2$ 个零点，继续重复使用 Roll 定理，直至最后一个零点 $\xi$，使得
+
+$$\exists\ \xi\in(a,b),\ \mathrm{s.t.}\dfrac{\mathrm{d}^{2n+2}\phi(\xi)}{\mathrm{d}x^{2n+2}}=0\tag{7.10}$$
+
+对式 (7.9) 求 $2n+2$ 次导数得
+
+$$
+\dfrac{\mathrm{d}^{2n+2}f(\xi)}{\mathrm{d}x^{2n+2}}-\dfrac{\mathrm{d}^{2n+2}H_{2n+1}(\xi)}{\mathrm{d}x^{2n+2}}-k(x)\dfrac{\mathrm{d}^{2n+2}\omega_{n+1}^2(\xi)}{\mathrm{d}x^{2n+2}}=0\tag{7.11}
+$$
+
+第二项中 $H_{2n+1}(x)$ 为 $2n+1$ 次多项式，求 $2n+2$ 次导后为 0.
+
+第三项中求导后为 $\dfrac{\mathrm{d}^{2n+2}\omega_{n+1}^2(\xi)}{\mathrm{d}x^{2n+2}}=(2n+2)!$，因此代入式 (7.11) 后可得
+
+$$
+k(x)=\dfrac{1}{(2n+2)!}\dfrac{\mathrm{d}^{2n+2}f(\xi)}{\mathrm{d}x^{2n+2}}\tag{7.12}
+$$
+
+得到 Hermite 插值的余项为
+
+$$
+R(x)=\dfrac{1}{(2n+2)!}\dfrac{\mathrm{d}^{2n+2}f(\xi)}{\mathrm{d}x^{2n+2}}\omega_{n+1}^2(x)\tag{7.13}
+$$
+
+可得
+
+$$
+f(x)=H_{2n+1}(x)+\dfrac{1}{(2n+2)!}\dfrac{\mathrm{d}^{2n+2}f(\xi)}{\mathrm{d}x^{2n+2}}\omega_{n+1}^2(x)\tag{7.14}
+$$
+
+求积公式对 $H_{2n+1}(x)$ 可以精确成立
+
+$$
+\int^b_a\rho(x)H_{2n+1}(x)\mathrm{d}x=\sum^n_{k=0}A_kf(x_k)\tag{7.15}
+$$
+
+$$
+\int^b_a\rho(x)f(x)\mathrm{d}x=\int^b_a\rho(x)H_{2n+1}(x)\mathrm{d}x+\dfrac{1}{(2n+2)!}\dfrac{\mathrm{d}^{2n+2}f(\xi)}{\mathrm{d}x^{2n+2}}\int^b_a\rho(x)\omega^2_{n+1}(x)\tag{7.16}
+$$
+
+由 $\rho(x)\omega^2_{n+1}(x)\geqslant0$ ，代入式 (7.15) 可得误差余项
+
+$$
+E_n=\int^b_a\rho(x)f(x)\mathrm{d}x-\sum^n_{k=0}A_kf(x_k)=\dfrac{1}{(2n+2)!}\dfrac{\mathrm{d}^{2n+2}f(\xi)}{\mathrm{d}x^{2n+2}}\int^b_a\rho(x)\omega^2_{n+1}(x)\tag{7.17}
+$$
+
+关于 Gauss 型积分收敛性和稳定性的问题，这里不过多讨论.
