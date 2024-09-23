@@ -74,3 +74,5 @@ $$
 $$
 
 ## Gauss-Chebyshev 求积公式
+
+与 Legendre 多项式类似，由于 Chebyshev 多项式具备正交性等性质，因此可以用于 Gauss 型积分.
