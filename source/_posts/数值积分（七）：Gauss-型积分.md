@@ -110,7 +110,7 @@ $$\int^b_a\rho(x)\omega_{n+1}(x)p(x)\mathrm{d}x=0$$
 证明必要性
 
 $$
-\int^b_a=\rho(x)\omega_{n+1}(x)p(x)\mathrm{d}x=\sum^n_{k=0}A_k\omega_{n+1}(x_k)p(x_k)=0\tag{7.6}
+\int^b_a\rho(x)\omega_{n+1}(x)p(x)\mathrm{d}x=\sum^n_{k=0}A_k\omega_{n+1}(x_k)p(x_k)=0\tag{7.6}
 $$
 
 证明充分性，由 Thm 7.1 已知正交性，令 $f(x)=\omega_{n+1}(x)p(x)+q(x)$
