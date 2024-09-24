@@ -66,6 +66,27 @@ $$
 
 ![Chebyshev 多项式](img/chebyshev.svg)
 
+绘制代码如下，这里取 $n=7$
+
+```matlab
+n = 7;
+
+x = -1:0.01:1;
+t = zeros(n,length(x));
+
+t(1,:) = 1;
+t(2,:) = x;
+
+for i = 3:n
+    t(i,:) = 2*x.*t(i-1,:) - t(i-2,:);
+end
+
+figure;
+for j = 1:n
+    plot(x,t(j,:),'LineWidth',1);hold on
+    grid on;
+end
+```
 
 此外还有一个导数形式的递推关系，可从下面的式子得出
 
@@ -145,3 +166,11 @@ $$
 $$
 \int^1_{-1}\dfrac{1}{\sqrt{1-x^2}}f(x)\mathrm{d}x\approx\dfrac{\pi}{n+1}\sum^n_{k=0}f(x_k)\tag{9.16}
 $$
+
+该求积公式的误差余项为
+
+$$
+R=\dfrac{2\pi}{2^{n+2}(2n+2)!}\dfrac{\mathrm{d}^{2n+2}f(\xi)}{\mathrm{d}x^{2n+2}},\ \xi\in(-1,1)\tag{9.17}
+$$
+
+对于非 $[-1,1]$ 上的积分，可类比式 (8.6) 做线性变换，以及采用复化求积的办法
