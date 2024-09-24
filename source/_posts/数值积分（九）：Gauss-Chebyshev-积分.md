@@ -45,7 +45,7 @@ $$
 由式（9.4）可得在 $[-1,1]$ 上有 $|T_n(x)|\leqslant1$，并且有 $n$ 个不相等的实根
 
 $$
-x_k=\cos\dfrac{(2k-1)\pi}{2n},\ k=1,2,\cdots,n\tag{9.6}
+x_k=\cos\dfrac{(2k+1)\pi}{2n+2},\ k=0,1,2,\cdots,n\tag{9.6}
 $$
 
 由式 (9.4) 还可判断出，当 $n$ 为偶数时 $T_n(x)$ 是偶函数，反之是奇函数. 除奇偶性外，Chebyshev 多项式还具有正交性完备性等性质. 与 Legendre 多项式类似的，Chebyshev 多项式也存在递推关系
@@ -76,3 +76,72 @@ $$
 ## Gauss-Chebyshev 求积公式
 
 与 Legendre 多项式类似，由于 Chebyshev 多项式具备正交性等性质，因此可以用于 Gauss 型积分.
+
+为了计算 Gauss-Chebyshev 积分的求积系数，从 Gauss 型积分的定义出发，即要具备 $2n+1$ 次代数精度，首先需要计算如下积分
+
+$$
+\int^1_{-1}\dfrac{x^n}{\sqrt{1-x^2}}\mathrm{d}x\Longrightarrow x=\sin t\Longrightarrow \int^{\frac\pi2}_{-\frac\pi2}\sin^nt\mathrm{d}t\tag{9.9}
+$$
+
+当 $n$ 为奇数时，被积函数为奇函数，积分为 0.
+
+当 $n$ 为偶数时，被积函数为偶函数
+
+$$
+\int^1_{-1}\dfrac{x^n}{\sqrt{1-x^2}}\mathrm{d}x=\int^{\frac\pi2}_{-\frac\pi2}\sin^nt\mathrm{d}t=2\int^{\frac\pi2}_0\sin^nt\mathrm{d}t\tag{9.10}
+$$
+
+记积分
+
+$$
+I_n=\int^{\frac\pi2}_0\sin^nx\mathrm{d}x=\int^{\frac\pi2}_0\sin^{n-2}x(1-\cos^2x)\mathrm{d}x\tag{9.12}
+$$
+
+不难看出右边第一项为 $I_{n-2}$ ，并对第二项使用分部积分法
+
+$$
+I_n=I_{n-2}-\int^{\frac\pi2}_0\sin^{n-2}x\cos^2x\mathrm{d}x=I_{n-2}-\int^{\frac\pi2}_0\dfrac{\cos x}{n-1}\mathrm{d}\sin^{n-1}x=I_{n-2}-\int^{\frac\pi2}_0\dfrac{\sin^nx}{n-1}\mathrm{d}x
+$$
+
+最终得到 $I_n=I_{n-2}-\dfrac{1}{n-1}I_n$，即
+
+$$I_n=\dfrac{n-1}{n}I_{n-2}\tag{9.13}$$
+
+$n$ 为偶数时即 `Wallis 公式` 
+
+$$
+\dfrac{(n-1)!!}{n!!}\pi\tag{9.14}
+$$
+
+求积公式
+
+$$
+\sum^{n}_{k=0}A_kf(x_k)
+$$
+
+对 $2n+1$ 次都要精准成立，取 Chebyshev 多项式的零点为 Gauss 点
+
+
+列表
+
+|$n$|$\int^1_{-1}\dfrac{x^n}{\sqrt{1-x^2}}\mathrm{d}x$|
+|:---|:---|
+|$n=0$|$\pi$|
+|$n=1$|0|
+|$n=2$|$\dfrac12\pi$|
+|$n=3$|0|
+|$n=4$|$\dfrac34\dfrac12\pi$|
+|$n=5$|0|
+|$n=6$|$\dfrac56\dfrac34\dfrac12\pi$|
+
+解线性方程组并类推可得
+
+$$
+A_k=\dfrac{\pi}{n+1}\tag{9.15}
+$$
+
+因此可得 `Gauss-Chebyshev` 求积公式
+
+$$
+\int^1_{-1}\dfrac{1}{\sqrt{1-x^2}}f(x)\mathrm{d}x\approx\dfrac{\pi}{n+1}\sum^n_{k=0}f(x_k)\tag{9.16}
+$$
