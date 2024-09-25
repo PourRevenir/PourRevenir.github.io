@@ -36,7 +36,7 @@ categories: 数值计算和程序设计
 
 更详细的介绍可以阅读 Wolfram MathWorld 的相关文档 [Laguerre-GaussQuadrature](https://mathworld.wolfram.com/Laguerre-GaussQuadrature.html)
 
-$$\int^{+\infty}_0e^{-x}f(x)=\sum^n_{k=0}A_kf(x_k)$$
+$$\int^{+\infty} _ 0e^{-x}f(x)=\sum^n _ {k=0}A_kf(x_k)$$
 
 求积系数
 
@@ -50,7 +50,7 @@ $$E_{n+1}=\dfrac{(n+1)!^2}{(2n+2)!}\dfrac{\mathrm{d}^{2n+2}f(\xi)}{\mathrm{d}x^{
 
 更详细的介绍可以阅读 Wolfram MathWorld 的相关文档 [Hermite-GaussQuadrature](https://mathworld.wolfram.com/Hermite-GaussQuadrature.html)
 
-$$\int^{+\infty}_{-\infty}e^{-x^2}f(x)=\sum^n_{k=0}A_kf(x_k)$$
+$$\int^{+\infty} _ {-\infty}e^{-x^2}f(x)=\sum^n _ {k=0}A_kf(x_k)$$
 
 求积系数
 
@@ -75,11 +75,11 @@ $$
 权函数的实际作用是用于归一化正交函数
 
 $$
-\phi(x)=\sum^n_{k=0}\dfrac{\omega_{n+1}(x)}{(x-x_k)\omega'_{n+1}(x_k)}f(x_k)\tag{10.3}
+\phi(x)=\sum^n _ {k=0}\dfrac{\omega_{n+1}(x)}{(x-x_k)\omega'_ {n+1}(x_k)}f(x_k)\tag{10.3}
 $$
 
 $$
-\int^b_a\rho(x)\phi(x)\mathrm{d}x=\int^b_a\sum^n_{k=0}\dfrac{\rho(x)\omega_{n+1}(x)}{(x-x_k)\omega'_{n+1}(x_k)}f(x_k)\mathrm{d}x=\sum^n_{k=0}A_kf(x_k)\tag{10.4}
+\int^b _ a\rho(x)\phi(x)\mathrm{d}x=\int^b _ a\sum^n _ {k=0}\dfrac{\rho(x)\omega _ {n+1}(x)}{(x-x_k)\omega' _ {n+1}(x_k)}f(x_k)\mathrm{d}x=\sum^n _ {k=0}A _ kf(x _ k)\tag{10.4}
 $$
 
 Gauss 系数
@@ -95,7 +95,7 @@ $$
 其中 $a_{k+1}$ 是 $\phi_{n+1}(x)$ 中 $x^{n+1}$ 项前的系数
 
 $$
-A_k=\dfrac{1}{\phi'_{n+1}(x)}\int^b_a\rho(x)\dfrac{\phi(x)}{x-x_k}\mathrm{d}x=-\dfrac{a_{n+2}\gamma_{n+1}}{a_{n+1}\phi_{n+1}'(x_k)\phi_{n+2}(x)}\tag{10.7}
+A _ k=\dfrac{1}{\phi' _ {n+1}(x)}\int^b _ a\rho(x)\dfrac{\phi(x)}{x-x _ k}\mathrm{d}x=-\dfrac{a _ {n+2}\gamma _ {n+1}}{a _ {n+1}\phi _ {n+1}'(x _ k)\phi _ {n+2}(x)}\tag{10.7}
 $$
 
 $$
