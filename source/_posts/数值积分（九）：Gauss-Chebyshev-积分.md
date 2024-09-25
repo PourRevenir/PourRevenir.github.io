@@ -115,7 +115,7 @@ $$
 记积分
 
 $$
-I_n=\int^{\frac\pi2}_0\sin^nx\mathrm{d}x=\int^{\frac\pi2}_ 0\sin^{n-2}x(1-\cos^2x)\mathrm{d}x\tag{9.12}
+I_n=\int^{\frac\pi2} _0\sin^nx\mathrm{d}x=\int^{\frac\pi2} _0\sin^{n-2}x(1-\cos^2x)\mathrm{d}x\tag{9.12}
 $$
 
 不难看出右边第一项为 $I_{n-2}$ ，并对第二项使用分部积分法
