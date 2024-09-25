@@ -16,7 +16,7 @@ $$
 (1-x^2)\dfrac{\mathrm{d}^2y}{\mathrm{d}x^2}-3x\dfrac{\mathrm{d}y}{\mathrm{d}x}+n(n+2)y=0\tag{9.2}
 $$
 
-式 (9.1) 的解称为 `第一类 Chebyshev 多项式`，式 (9.2) 的解被称为`Chebyshev 多项式`.
+式 (9.1) 的解称为 `第一类 Chebyshev 多项式`，式 (9.2) 的解被称为`第二类 Chebyshev 多项式`.
 
 第一类 Chebyshev 多项式写成三角形式即为
 
@@ -96,6 +96,8 @@ $$
 
 ## Gauss-Chebyshev 求积公式
 
+更详细的介绍可以阅读 Wolfram MathWorld 的相关文档 [Chebyshev-GaussQuadrature](https://mathworld.wolfram.com/Chebyshev-GaussQuadrature.html)
+
 与 Legendre 多项式类似，由于 Chebyshev 多项式具备正交性等性质，因此可以用于 Gauss 型积分.
 
 为了计算 Gauss-Chebyshev 积分的求积系数，从 Gauss 型积分的定义出发，即要具备 $2n+1$ 次代数精度，首先需要计算如下积分
@@ -115,13 +117,13 @@ $$
 记积分
 
 $$
-I_n=\int^{\frac\pi2} _0\sin^nx\mathrm{d}x=\int^{\frac\pi2} _0\sin^{n-2}x(1-\cos^2x)\mathrm{d}x\tag{9.12}
+I _n=\int^{\frac\pi2} _0\sin^nx\mathrm{d}x=\int^{\frac\pi2} _0\sin^{n-2}x(1-\cos^2x)\mathrm{d}x\tag{9.12}
 $$
 
 不难看出右边第一项为 $I_{n-2}$ ，并对第二项使用分部积分法
 
 $$
-I_n=I_{n-2}-\int^{\frac\pi2} _0\sin^{n-2}x\cos^2x\mathrm{d}x=I _{n-2}-\int^{\frac\pi2} _0\dfrac{\cos x}{n-1}\mathrm{d}\sin^{n-1}x=I _{n-2}-\int^{\frac\pi2}_ 0\dfrac{\sin^nx}{n-1}\mathrm{d}x
+I _n=I _{n-2}-\int^{\frac\pi2} _0\sin^{n-2}x\cos^2x\mathrm{d}x=I _{n-2}-\int^{\frac\pi2} _0\dfrac{\cos x}{n-1}\mathrm{d}\sin^{n-1}x=I _{n-2}-\int^{\frac\pi2} _0\dfrac{\sin^nx}{n-1}\mathrm{d}x
 $$
 
 最终得到 $I_n=I_{n-2}-\dfrac{1}{n-1}I_n$，即
@@ -169,14 +171,14 @@ $$
 该求积公式的误差余项为
 
 $$
-R=\dfrac{2\pi}{2^{n+2}(2n+2)!}\dfrac{\mathrm{d}^{2n+2}f(\xi)}{\mathrm{d}x^{2n+2}},\ \xi\in(-1,1)\tag{9.17}
+E_{n+1}=\dfrac{2\pi}{2^{n+2}(2n+2)!}\dfrac{\mathrm{d}^{2n+2}f(\xi)}{\mathrm{d}x^{2n+2}},\ \xi\in(-1,1)\tag{9.17}
 $$
 
 对于非 $[-1,1]$ 上的积分，可类比式 (8.6) 做线性变换，以及采用复化求积的办法
 
 ## 另一种形式的 Gauss-Chebyshev 积分
 
-形式如下
+此种 Gauss-Chebyshev 积分来自于第二类 Chebyshev 多项式即式 (9.2) 的解，与第一类 Chebyshev 多项式具有相似的性质. 从中推导出的求积公式形式如下
 
 $$
 \int^1_{-1}\sqrt{1-x^2}g(x)\mathrm{d}x\approx\sum^n_{k=0}A_kg(x_k)\tag{9.18}

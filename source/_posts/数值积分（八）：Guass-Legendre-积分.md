@@ -34,6 +34,8 @@ $$
 
 ## Gauss-Legendre 积分
 
+更详细的介绍可以阅读 Wolfram MathWorld 的相关文档 [Legendre-GaussQuadrature](https://mathworld.wolfram.com/Legendre-GaussQuadrature.html)
+
 由 Legendre 多项式的性质，当 $\rho(x)=1$ 时，且积分区间为 $[-1,1]$ ，Legendre 多项式的根即为 Gauss 点，从而得到 `Gauss-Legendre 积分`.
 
 $$
@@ -43,7 +45,7 @@ $$
 其误差余项为
 
 $$
-E_n=\dfrac{2^{2n+3}[(n+1)!]^4}{(2n+3)[(2n+2)!]^3}\dfrac{\mathrm{d}^{2n+2}f(\xi)}{\mathrm{d}x^{2n+2}},\ \xi\in(-1,1)\tag{8.5}
+E_{n+1}=\dfrac{2^{2n+3}[(n+1)!]^4}{(2n+3)[(2n+2)!]^3}\dfrac{\mathrm{d}^{2n+2}f(\xi)}{\mathrm{d}x^{2n+2}},\ \xi\in(-1,1)\tag{8.5}
 $$
 
 对于 $[a,b]$ 上的积分，只需做线性变换即可得

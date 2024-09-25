@@ -107,7 +107,7 @@ $$\int^b_a\rho(x)\omega_{n+1}(x)p(x)\mathrm{d}x=0$$
 
 {% endnote %}
 
-证明必要性
+上述定理也被称为`基本 Gauss 求积定理`，证明必要性
 
 $$
 \int^b_a\rho(x)\omega_{n+1}(x)p(x)\mathrm{d}x=\sum^n_{k=0}A_k\omega_{n+1}(x_k)p(x_k)=0\tag{7.6}
