@@ -122,7 +122,6 @@ $$
 
 $$
 I_n=I_{n-2}-\int^{\frac\pi2}_ 0\sin^{n-2}x\cos^2x\mathrm{d}x=I_{n-2}-\int^{\frac\pi2}_ 0\dfrac{\cos x}{n-1}\mathrm{d}\sin^{n-1}x=I_ {n-2}-\int^{\frac\pi2}_ 0\dfrac{\sin^nx}{n-1}\mathrm{d}x
-I_n=I_{n-2}-\int^{\frac\pi2}_ 0\sin^{n-2}x\cos^2x\mathrm{d}x=I_{n-2}-\int^{\frac\pi2}_ 0\dfrac{\cos x}{n-1}\mathrm{d}\sin^{n-1}x=I_{n-2}-\int^{\frac\pi2}_0\dfrac{\sin^nx}{n-1}\mathrm{d}x
 $$
 
 最终得到 $I_n=I_{n-2}-\dfrac{1}{n-1}I_n$，即
