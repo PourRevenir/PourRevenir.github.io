@@ -118,4 +118,68 @@ $$
 
 更详细的介绍可以阅读 Wolfram MathWorld 的相关文档[RadauQuadrature](https://mathworld.wolfram.com/RadauQuadrature.html)
 
+$$
+\int^1_{-1}f(x)\mathrm{d}x=A_0f(-1)+\sum^n_{k=1}A_kf(x_k)
+$$
 
+$x_k$ 来自于多项式 $\dfrac{P_{n-1}(x)+P_n(x)}{1+x}$ 的根.
+
+求积系数
+
+$$
+A_1=\dfrac{1}{n^2}
+$$
+
+$$
+A_k=\dfrac{1}{(1-x_k){P'_n}^2(x_k)}
+$$
+
+误差余项
+
+$$
+E_{n+1}=\dfrac{2^{2n+1}(n+1)n!^4}{(2n+1)!^3}\dfrac{\mathrm{d}^{2n+1}f(\xi)}{\mathrm{d}x^{2n+1}}
+$$
+
+## Gauss-Lobatto 积分
+
+更详细的介绍可以阅读 Wolfram MathWorld 的相关文档 [LobattoQuadrature](https://mathworld.wolfram.com/LobattoQuadrature.html)
+
+$$
+\int^1_{-1}f(x)\mathrm{d}x=A_0f(-1)+A_nf(1)+\sum^{n-1}_{k=1}A_kf(x_k)
+$$
+
+$x_k$ 来自于多项式 $\dfrac{2}{n(n+1)P^2_n(x_k)}$ .
+
+求积系数
+
+$$
+A_0=A_n=\dfrac{2}{n(n+1)}
+$$
+
+$$
+A_k=\dfrac{2}{n(n+1)P_n^2(x_k)}
+$$
+
+误差余项
+
+$$
+E_{n+1}=-\dfrac{(n+1)n^32^{2n+1}(n-1)!^4}{(2n+1)2n!^3}\dfrac{\mathrm{d}^{2n+1}f(\xi)}{\mathrm{d}x^{2n+1}}
+$$
+
+MATLAB 函数为
+
+```matlab
+[q,func] = quadl(fun,a,b,tol,trace,p1,p2,...);
+```
+
+适用于精度要求高，被积函数曲线比较平滑的数值积分，速度和精度均较好.
+
+## Gauss-Kronrod 积分
+
+更详细的介绍可以阅读 Wolfram MathWorld 的相关文档 [Gauss-KronrodQuadrature](https://mathworld.wolfram.com/Gauss-KronrodQuadrature.html)
+
+```matlab
+[q,errbnd] = quadgk(fun,a,b,param1,val1,param2,val2,...)
+```
+
+适用于高精度和震荡数值积分，支持无穷区间，并且能够处理端点包含奇点的情况，同时还支持沿着不连续函数积分，复数域线性路径的围道积分法.
