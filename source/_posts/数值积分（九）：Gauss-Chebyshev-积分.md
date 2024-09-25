@@ -115,20 +115,20 @@ $$
 记积分
 
 $$
-I_n=\int^{\frac\pi2}_0\sin^nx\mathrm{d}x=\int^{\frac\pi2}_0\sin^{n-2}x(1-\cos^2x)\mathrm{d}x\tag{9.12}
+I_n=\int^{\frac\pi2}_0\sin^nx\mathrm{d}x=\int^{\frac\pi2}_ 0\sin^{n-2}x(1-\cos^2x)\mathrm{d}x\tag{9.12}
 $$
 
 不难看出右边第一项为 $I_{n-2}$ ，并对第二项使用分部积分法
 
 $$
-I_n=I_{n-2}-\int^{\frac\pi2}_0\sin^{n-2}x\cos^2x\mathrm{d}x=I_{n-2}-\int^{\frac\pi2}_0\dfrac{\cos x}{n-1}\mathrm{d}\sin^{n-1}x=I_{n-2}-\int^{\frac\pi2}_0\dfrac{\sin^nx}{n-1}\mathrm{d}x
+I_n=I_{n-2}-\int^{\frac\pi2}_ 0\sin^{n-2}x\cos^2x\mathrm{d}x=I_{n-2}-\int^{\frac\pi2}_ 0\dfrac{\cos x}{n-1}\mathrm{d}\sin^{n-1}x=I_ {n-2}-\int^{\frac\pi2}_ 0\dfrac{\sin^nx}{n-1}\mathrm{d}x
 $$
 
 最终得到 $I_n=I_{n-2}-\dfrac{1}{n-1}I_n$，即
 
 $$I_n=\dfrac{n-1}{n}I_{n-2}\tag{9.13}$$
 
-$n$ 为偶数时即 `Wallis 公式` 
+$n$ 为偶数时即 `Wallis 公式`
 
 $$
 \dfrac{(n-1)!!}{n!!}\pi\tag{9.14}
@@ -141,7 +141,6 @@ $$
 $$
 
 对 $2n+1$ 次都要精准成立，取 Chebyshev 多项式的零点为 Gauss 点
-
 
 列表
 
@@ -161,7 +160,7 @@ $$
 A_k=\dfrac{\pi}{n+1}\tag{9.15}
 $$
 
-因此可得 `Gauss-Chebyshev` 求积公式
+因此可得 `Gauss-Chebyshev 求积公式`
 
 $$
 \int^1_{-1}\dfrac{1}{\sqrt{1-x^2}}f(x)\mathrm{d}x\approx\dfrac{\pi}{n+1}\sum^n_{k=0}f(x_k)\tag{9.16}
@@ -174,3 +173,21 @@ R=\dfrac{2\pi}{2^{n+2}(2n+2)!}\dfrac{\mathrm{d}^{2n+2}f(\xi)}{\mathrm{d}x^{2n+2}
 $$
 
 对于非 $[-1,1]$ 上的积分，可类比式 (8.6) 做线性变换，以及采用复化求积的办法
+
+## 另一种形式的 Gauss-Chebyshev 积分
+
+形式如下
+
+$$
+\int^1_{-1}\sqrt{1-x^2}g(x)\mathrm{d}x\approx\sum^n_{k=0}A_kg(x_k)\tag{9.18}
+$$
+
+其中
+
+$$
+x_k=\cos\dfrac{k+1}{n+2}\pi\tag{9.19}
+$$
+
+$$
+A_k=\dfrac{\pi}{n+2}\sin^2\dfrac{k+1}{n+2}\pi\tag{9.20}
+$$
