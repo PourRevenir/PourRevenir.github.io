@@ -119,7 +119,7 @@ $$
 更详细的介绍可以阅读 Wolfram MathWorld 的相关文档[RadauQuadrature](https://mathworld.wolfram.com/RadauQuadrature.html)
 
 $$
-\int^1_{-1}f(x)\mathrm{d}x=A_0f(-1)+\sum^n_{k=1}A_kf(x_k)
+\int^1_{-1}f(x)\mathrm{d}x\approx A_0f(-1)+\sum^n_{k=1}A_kf(x_k)
 $$
 
 $x_k$ 来自于多项式 $\dfrac{P_{n-1}(x)+P_n(x)}{1+x}$ 的根.
@@ -145,7 +145,7 @@ $$
 更详细的介绍可以阅读 Wolfram MathWorld 的相关文档 [LobattoQuadrature](https://mathworld.wolfram.com/LobattoQuadrature.html)
 
 $$
-\int^1_{-1}f(x)\mathrm{d}x=A_0f(-1)+A_nf(1)+\sum^{n-1}_{k=1}A_kf(x_k)
+\int^1_{-1}f(x)\mathrm{d}x\approx A_0f(-1)+A_nf(1)+\sum^{n-1}_{k=1}A_kf(x_k)
 $$
 
 $x_k$ 来自于多项式 $\dfrac{2}{n(n+1)P^2_n(x_k)}$ .
@@ -177,6 +177,26 @@ MATLAB 函数为
 ## Gauss-Kronrod 积分
 
 更详细的介绍可以阅读 Wolfram MathWorld 的相关文档 [Gauss-KronrodQuadrature](https://mathworld.wolfram.com/Gauss-KronrodQuadrature.html)
+
+求积公式为
+
+$$
+\int^1_{-1}f(x)\mathrm{d}x\approx \sum^n_{k=0}A_kf(x_k)+\sum^{n+1}_{j=0}B_jf(y_j)
+$$
+
+$x_k$ 为 $n$ 阶 Legendre 函数的根. 合理选取 $y_j$ 可使代数精度达到 $3n+4$. 事实上 $y_j$ 是 Stieltjes 多项式的根.
+
+求积系数
+
+$$
+A_k=\left[\dfrac{1}{p'_n(x_k)E_{n+1}(x_k)}-\dfrac{1}{p_n'(x_k)p_{n+1}(x_k)}\right]\int^1_{-1}p'_n(x)\mathrm{d}x
+$$
+
+$$
+B_j=\dfrac{1}{p_n'(y_j)E_{n+1}'(y_j)}\int^1_{-1}p_n^2(x)\mathrm{d}x
+$$
+
+MATLAB 函数为
 
 ```matlab
 [q,errbnd] = quadgk(fun,a,b,param1,val1,param2,val2,...)
