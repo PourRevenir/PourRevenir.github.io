@@ -189,7 +189,7 @@ $x_k$ 为 $n$ 阶 Legendre 函数的根. 合理选取 $y_j$ 可使代数精度�
 求积系数
 
 $$
-A_k=\left[\dfrac{1}{p'_n(x_k)E_{n+1}(x_k)}-\dfrac{1}{p_n'(x_k)p_{n+1}(x_k)}\right]\int^1_{-1}p'_n(x)\mathrm{d}x
+A _ k=\left[\dfrac{1}{p'  _ n(x _ k)E _ {n+1}(x _ k)}-\dfrac{1}{p _ n'(x _ k)p _ {n+1}(x _ k)}\right]\int^1 _ {-1}p' _ n(x)\mathrm{d}x
 $$
 
 $$
