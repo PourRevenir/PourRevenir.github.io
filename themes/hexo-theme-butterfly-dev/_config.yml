@@ -16,7 +16,7 @@ menu:
   # List||fas fa-list:
   #   Music: /music/ || fas fa-music
   #   Movie: /movie/ || fas fa-video
-  链接: /link/ || fas fa-link
+  友链: /link/ || fas fa-link
   关于: /about/ || fas fa-heart
 
 # Code Blocks (代碼相關)
@@ -409,13 +409,23 @@ addtoany:
 comments:
   # Up to two comments system, the first will be shown as default
   # Choose: Disqus/Disqusjs/Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo/Giscus/Remark42/Artalk
-  use: Valine,Disqus
+  use: # Valine,Disqus
   text: true # Display the comment name next to the button
   # lazyload: The comment system will be load when comment element enters the browser's viewport.
   # If you set it to true, the comment count will be invalid
-  lazyload: true
-  count: true # Display comment count in post's top_img
+  lazyload: false
+  count: false # Display comment count in post's top_img
   card_post_count: false # Display comment count in Home Page
+
+
+
+#  use: Valine,Disqus
+#  text: true # Display the comment name next to the button
+#  # lazyload: The comment system will be load when comment element enters the browser's viewport.
+#  # If you set it to true, the comment count will be invalid
+#  lazyload: true
+#  count: true # Display comment count in post's top_img
+#  card_post_count: false # Display comment count in Home Page
 
 # disqus
 # https://disqus.com/
